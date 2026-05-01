@@ -153,4 +153,4 @@ This project is **unofficial** and **not affiliated with, endorsed by, or sponso
 
 ## License
 
-No license is set yet — add a [LICENSE](https://choosealicense.com/) file (MIT or Apache-2.0 is typical for projects like this) before publishing if you want to allow forks/use. Without one, the code is "all rights reserved" by default.
+[MIT](LICENSE) — do whatever you want with the code, just keep the copyright notice.
