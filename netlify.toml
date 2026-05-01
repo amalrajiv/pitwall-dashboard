@@ -1,0 +1,40 @@
+# Pitwall — Netlify deployment config
+# Static-only site. No build step.
+
+[build]
+  publish = "."
+  command = ""
+
+# Security + caching headers applied to every response.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    # Content-Security-Policy: scoped to exactly what Pitwall touches.
+    #   - script-src: jsdelivr (Chart.js)
+    #   - style-src 'unsafe-inline': we use style="..." attributes in templates
+    #   - font-src: Google Fonts gstatic
+    #   - img-src 'data:' + media.formula1.com: SVG fallbacks + driver/flag/circuit images
+    #   - media-src: team-radio MP3s on livetiming.formula1.com
+    #   - connect-src: OpenF1 API
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://media.formula1.com; media-src 'self' https://livetiming.formula1.com; connect-src 'self' https://api.openf1.org; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+# Short cache for the entry HTML so updates roll out fast.
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Slightly longer cache for static assets — Netlify revalidates with ETag anyway.
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
