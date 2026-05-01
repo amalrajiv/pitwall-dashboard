@@ -8,6 +8,10 @@ Zero build step. Three files of vanilla HTML / CSS / JS. Deploys to Netlify in a
 
 ---
 
+<img width="2534" height="1384" alt="Screenshot 2026-05-01 at 10 22 55 PM" src="https://github.com/user-attachments/assets/f5e507b2-dba7-4f2e-8777-91aec6b922e3" />
+
+
+
 ## Highlights
 
 **Race & strategy**
