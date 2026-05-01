@@ -8,7 +8,7 @@
  *   the source can read the hash) — fine for "don't accidentally open
  *   this URL", not real authentication.
  */
-const ACCESS_KEY_HASH = "1d5e77ee301c5cbbb87ed419084ef42434f9a7f8d60e38431042f68345e95a35"; // SHA-256
+const ACCESS_KEY_HASH = "1d5e77ee301c5cbbb87ed419084ef42434f9a7f8d60e38431042f68345e95a3"; // sysaccess001
 
 const API = "https://api.openf1.org/v1";
 const YEARS = [2026, 2025, 2024, 2023];
